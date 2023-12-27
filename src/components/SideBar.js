@@ -8,10 +8,18 @@ const SideBar = () => {
 
   const isMenuOpen=useSelector(store=>store.app.isMenuOpen)
   if(!isMenuOpen){ 
+    return (
+      <div className='mt-36 font-bold font-serif cols-span-3 fixed'>
+      <Link to="/"> <img className='w-10 ml-10' src={HOME} alt="home"/><h1 className='flex ml-10 items-center'>Home</h1></Link> 
+       <img className='w-10 ml-10 mt-10' src={SHORTS} alt="shorts"/><h1 className='flex ml-10 items-center'>Shorts</h1>
+       <img className='w-10 ml-10 mt-10' src={SUBSCRIBE} alt="sub"/><h1 className='flex ml-4 items-center'>Subscriptions</h1>
+       <img className='w-10 ml-10 mt-10' src={YOU} alt="you"/><h1 className='flex items-center ml-11'>You</h1>
+      </div>
+    )}
 return(
-  <div  className='mt-28'>
-      <div className='text-black cols-span-3 font-serif text-md fixed grid grid-flow-col'>
-       <img className='w-6 flex' src={HOME} alt="home"/><h1 className='flex items-center ml-2'>Home</h1>
+  <div  className='mt-20'>
+      <div className='text-black mt-10 cols-span-3 font-serif text-md fixed grid grid-flow-col'>
+      <Link to="/"> <img className='w-6  fixed grid grid-flow-col' src={HOME} alt="home"/><h1 className='flex items-center ml-8'>Home</h1></Link>
         <div className='text-black mt-7 cols-span-3 font-serif text-md fixed grid grid-flow-col'>
         <img className='w-6 flex' src={SHORTS} alt="shorts"/><h1 className='flex items-center ml-2'>Shorts</h1>
         <div className='text-black mt-7 cols-span-3 font-serif text-md fixed grid grid-flow-col'>
@@ -43,14 +51,7 @@ return(
        <div className='text-black mt-7 cols-span-3 font-serif text-md fixed grid grid-flow-col'>
         <img className='w-6 flex' src={LIVE} alt="you"/><h1 className='flex items-center ml-2'>Live</h1>
 </div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>)}
-  return (
-    <div className='mt-36 font-bold font-serif cols-span-3 fixed'>
-     <img className='w-10 ml-10' src={HOME} alt="home"/><h1 className='flex ml-10 items-center'>Home</h1>
-     <img className='w-10 ml-10 mt-10' src={SHORTS} alt="shorts"/><h1 className='flex ml-10 items-center'>Shorts</h1>
-     <img className='w-10 ml-10 mt-10' src={SUBSCRIBE} alt="sub"/><h1 className='flex ml-4 items-center'>Subscriptions</h1>
-     <img className='w-10 ml-10 mt-10' src={YOU} alt="you"/><h1 className='flex items-center ml-11'>You</h1>
-    </div>
-  )
-}
+  
+
 
 export default SideBar
