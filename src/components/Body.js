@@ -1,14 +1,12 @@
 import React from 'react'
 import SideBar from './SideBar'
 import { Outlet } from 'react-router-dom'
-import ButtonList from './ButtonList'
 
 
 const Body = () => {
   return (
     <div className='grid grid-flow-col'>
         <SideBar/>
-        <ButtonList/>
         <Outlet/>
     </div>
   )

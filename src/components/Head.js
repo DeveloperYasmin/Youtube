@@ -12,7 +12,8 @@ const Head = () => {
     <div className='fixed w-screen grid grid-flow-col p-3 items-center bg-white'>
       <div className='flex items-center' >
         <img className='h-6 pr-5 cursor-pointer' onClick={togglemenuhandler} alt="hamburger" src={HAMBURGER_ICON}/>
-        <img className='h-20' alt="logo" src={YOUTUBE_LOGO}/>
+
+        <img className='h-20 ' alt="logo" src={YOUTUBE_LOGO}/>
       </div>
         <div className='flex items-center pl-52'>
           <input className='h-8 p-6 m-2 w-96 rounded-full border border-black ' placeholder='Search' type="text"/>

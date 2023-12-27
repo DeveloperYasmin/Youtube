@@ -10,7 +10,7 @@ const SideBar = () => {
   if(!isMenuOpen){ 
     return (
       <div className='mt-36 font-bold font-serif cols-span-3 fixed'>
-      <Link to="/"> <img className='w-10 ml-10' src={HOME} alt="home"/><h1 className='flex ml-10 items-center'>Home</h1></Link> 
+ <div className='hover:bg-gray-400 hover:mr-4 rounded-lg'>     <Link to="/"> <img className='w-10 ml-10' src={HOME} alt="home"/><h1 className='flex  ml-10 items-center'>Home</h1></Link> </div>
        <img className='w-10 ml-10 mt-10' src={SHORTS} alt="shorts"/><h1 className='flex ml-10 items-center'>Shorts</h1>
        <img className='w-10 ml-10 mt-10' src={SUBSCRIBE} alt="sub"/><h1 className='flex ml-4 items-center'>Subscriptions</h1>
        <img className='w-10 ml-10 mt-10' src={YOU} alt="you"/><h1 className='flex items-center ml-11'>You</h1>
@@ -18,7 +18,7 @@ const SideBar = () => {
     )}
 return(
   <div  className='mt-20'>
-      <div className='text-black mt-10 cols-span-3 font-serif text-md fixed grid grid-flow-col'>
+      <div className='text-black mt-10 cols-span-3 font-serif text-md fixed grid grid-flow-col hover:bg-gray-400 hover:px-3 rounded-lg w-28'>
       <Link to="/"> <img className='w-6  fixed grid grid-flow-col' src={HOME} alt="home"/><h1 className='flex items-center ml-8'>Home</h1></Link>
         <div className='text-black mt-7 cols-span-3 font-serif text-md fixed grid grid-flow-col'>
         <img className='w-6 flex' src={SHORTS} alt="shorts"/><h1 className='flex items-center ml-2'>Shorts</h1>
