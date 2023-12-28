@@ -15,8 +15,8 @@ const VideoContainer = () => {
     getvideos()
   },[])
   return (
-    <div className='mt-5 flex flex-wrap ml-32 pt-32'>
-     {videos && videos.map(video=>( <Link to={"/watch?v=" + video.id}><VideoCard key={video.id} info={video}/></Link>))}
+    <div className='mt-10 flex flex-wrap ml-32 pt-32'>
+     {videos && videos.map(video=>( <Link to={"/watch?v=" + video.id} key={video.id}><VideoCard key={video.id}  info={video}/></Link>))}
     </div>
   )
 }

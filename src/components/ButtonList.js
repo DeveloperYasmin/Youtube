@@ -6,10 +6,10 @@ const list=["All","Gaming","Live","Soccer","Cricket","Valentines","Cooking","Mus
 
 const ButtonList = () => {
   return (
-    <div className=' bg-white mt-20 ml-32 fixed w-[88vw] p-3 m-4'>
+    <div className='bg-white mt-24 ml-32 fixed w-[88vw] p-3 m-4'>
       <Carousel cols={15} rows={1} gap={2} loop>
-      {list.map((list)=><Carousel.Item>
-     <Button key={list[0]} name={list}/>
+      {list.map((list)=><Carousel.Item key={list}>
+     <Button key={list} name={list}/>
       </Carousel.Item>)}</Carousel>
     </div>
   )

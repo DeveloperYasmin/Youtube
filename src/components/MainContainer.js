@@ -4,7 +4,7 @@ import ButtonList from './ButtonList'
 
 const MainContainer = () => {
   return (
-    <div className='grid grid-flow-col'> 
+    <div className='z-10 '> 
     <ButtonList/>    
         <VideoContainer/>
     </div>

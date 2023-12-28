@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import Body from './components/Body';
 import Head from './components/Head';
 import appStore from './utils/appStore';
-import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainContainer from './components/MainContainer';
 import WatchPage from './components/WatchPage';
 
@@ -28,9 +28,9 @@ function App() {
    <Provider store={appStore}>
 
     <div>
-    <BrowserRouter> 
+   
       <Head/>
-      </BrowserRouter>
+      
       <RouterProvider router={appRouter}/>
           </div>
           </Provider>
