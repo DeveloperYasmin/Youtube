@@ -9,10 +9,10 @@ import { cacheResults } from '../utils/searchSlice'
 
 const VideoContainer = () => {
   const [filtersearch,setfiltersearch]=useState([])
-
   const [searchquery,setsearchquery]=useState("")
   const[suggestions,setsuggestions]=useState([])
   const [showsuggestions,setshowsuggestions]=useState(false)
+
 
   const searchcache=useSelector((store)=>store.search)
   const dispatch=useDispatch()
@@ -40,10 +40,17 @@ const VideoContainer = () => {
     const json=await data.json()
     setvideos(json.items)
     setfiltersearch(json.items)
+
   }
+  
   useEffect(()=>{
     getvideos()
+    console.log(setfiltersearch())
   },[])
+  
+
+
+ 
   return (
 
     <div className=' z-30'> 
@@ -62,8 +69,10 @@ const VideoContainer = () => {
 {searchquery && showsuggestions && <div className='fixed bg-white py-2 px-2 m-16 mt-20 ml-[440px] w-80 rounded-lg border border-gray-100'>
     <ul>
       {suggestions.map((s)=>(
-      <div key={s} className='flex hover:bg-gray-100 py-2' >
-     <img className=' h-6 px-5'  alt="search" src={SEARCH_ICON}/><li>{s}</li></div>))}
+     <div key={s}  className='flex hover:bg-gray-100 py-2'>
+     <img className=' h-6 px-5'  alt="search" src={SEARCH_ICON}/><li className='cursor-pointer' value={s}>{s}</li>
+
+     </div>))}
       </ul></div>
       }
      
@@ -74,6 +83,6 @@ const VideoContainer = () => {
     </div> 
     </div>
   )
-}
+    }
 
 export default VideoContainer
