@@ -46,16 +46,17 @@ const VideoContainer = () => {
   },[])
   return (
 
-    <div className='flex flex-wrap z-30'> 
-      <div className='mt-5 ml-52 items-center pl-52'>
-    <input className='absolute h-8 p-6 m-2 w-96 rounded-full border border-black '   placeholder='Search' type="text" value={searchquery} onChange={(e)=>setsearchquery(e.target.value)} 
+    <div className=' z-30'> 
+      <div className='flex flex-wrap ml-52 items-center pl-52'>
+    <input className=' mt-32 absolute h-8 p-6 m-2 w-96 rounded-full border border-black '   placeholder='Search' type="text" value={searchquery} onChange={(e)=>setsearchquery(e.target.value)} 
     onFocus={()=>setshowsuggestions(true)}  onBlur={()=>setshowsuggestions(false)}  />
+      <div>
       <button onClick={()=> {const filtersearch=videos?.filter((sea)=>sea.snippet.title.toLowerCase().includes(searchquery.toLowerCase()))
         setfiltersearch(filtersearch) }}>
 
-      <img className=' absolute h-6 mt-5 pl-[340px]'  alt="search" src={SEARCH_ICON}/>
+      <img className=' absolute h-6 mt-10 pl-[340px]'  alt="search" src={SEARCH_ICON}/>
       </button>
-
+      </div>
       </div>
   
 {searchquery && showsuggestions && <div className='fixed bg-white py-2 px-2 m-16 mt-20 ml-[440px] w-80 rounded-lg border border-gray-100'>
