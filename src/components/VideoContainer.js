@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { YOUTUBE_API } from '../utils/constants'
 import VideoCard from './VideoCard'
 import { Link } from 'react-router-dom'
@@ -9,11 +9,20 @@ import { cacheResults } from '../utils/searchSlice'
 
 const VideoContainer = () => {
   const [filtersearch,setfiltersearch]=useState([])
+  const[selected,setselected]=useState("")
   const [searchquery,setsearchquery]=useState("")
-  const[suggestions,setsuggestions]=useState([])
+  const[suggestions,setsuggestions]=useState("")
   const [showsuggestions,setshowsuggestions]=useState(false)
 
 
+  const divref=useRef()
+  const sref=useRef()
+  window.addEventListener('click',(e)=>{
+    if(e.target !== divref.current && e.target !== sref.current )
+    {
+      setshowsuggestions(false)
+    }
+  })
   const searchcache=useSelector((store)=>store.search)
   const dispatch=useDispatch()
 
@@ -45,7 +54,6 @@ const VideoContainer = () => {
   
   useEffect(()=>{
     getvideos()
-    console.log(setfiltersearch())
   },[])
   
 
@@ -54,29 +62,26 @@ const VideoContainer = () => {
   return (
 
     <div className=' z-30'> 
-      <div className='flex flex-wrap ml-52 items-center pl-52'>
-    <input className=' mt-32 absolute h-8 p-6 m-2 w-96 rounded-full border border-black '   placeholder='Search' type="text" value={searchquery} onChange={(e)=>setsearchquery(e.target.value)} 
-    onFocus={()=>setshowsuggestions(true)}  onBlur={()=>setshowsuggestions(false)}  />
-      <div>
+    
+    <div className='flex flex-wrap ml-52 items-center pl-52' >
+    <input className=' mt-32 absolute h-8 p-6 m-2 w-96 rounded-full border border-black '   placeholder='Search' type="text" value={selected?selected:searchquery}  onChange={(e)=>setsearchquery(e.target.value)}
+   ref={divref} onClick={()=>setshowsuggestions(!showsuggestions)} />
+      </div>
       <button onClick={()=> {const filtersearch=videos?.filter((sea)=>sea.snippet.title.toLowerCase().includes(searchquery.toLowerCase()))
         setfiltersearch(filtersearch) }}>
 
-      <img className=' absolute h-6 mt-10 pl-[340px]'  alt="search" src={SEARCH_ICON}/>
+      <img className='absolute h-6 mt-7 pl-[750px]'  alt="search" src={SEARCH_ICON}/>
       </button>
-      </div>
-      </div>
+      
+      
   
-{searchquery && showsuggestions && <div className='fixed bg-white py-2 px-2 m-16 mt-20 ml-[440px] w-80 rounded-lg border border-gray-100'>
-    <ul>
-      {suggestions.map((s)=>(
-     <div key={s}  className='flex hover:bg-gray-100 py-2'>
-     <img className=' h-6 px-5'  alt="search" src={SEARCH_ICON}/><li className='cursor-pointer' value={s}>{s}</li>
-
-     </div>))}
-      </ul></div>
+      {searchquery && showsuggestions && (<div ref={sref} className='fixed bg-white py-2 px-2 m-16 mt-20 ml-[440px] w-80 rounded-lg border border-gray-100'> 
+     <ul> 
+      {suggestions.map((s)=>(<div key={s}  className='flex hover:bg-gray-100 py-2'>
+        <li onClick={()=>{setselected(s)&& setshowsuggestions(false)}}>{s}</li></div>))}
+        </ul></div>)
       }
-     
-
+  
 
     <div className='mt-10 flex flex-wrap ml-32 pt-32'>
      {filtersearch && filtersearch.map(video=>( <Link to={"/watch?v=" + video.id} key={video.id}><VideoCard key={video.id}  info={video}/></Link>))}
