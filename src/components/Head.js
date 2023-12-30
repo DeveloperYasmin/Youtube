@@ -10,20 +10,19 @@ const Head = () => {
       dispatch(toggleMenu())
   }
   return (
-    <div className='fixed'>
-    <div className=' w-screen grid grid-flow-col z-20 p-3 items-center bg-white'>
+    <div className=' -mt-10 grid grid-flow-col p-5'>
       
-      <div className=' flex items-center' >
+      <div className='fixed bg-white flex col-span-1 w-screen  items-center' >
         <img className='h-6 pr-5 cursor-pointer' onClick={togglemenuhandler} alt="hamburger" src={HAMBURGER_ICON}/>
 
-        <img className='h-20 ' alt="logo" src={YOUTUBE_LOGO}/>
-      </div>
-       
-    <div className='flex items-center  ml-[850px]'>
-      <img className='h-9' alt="user" src={USER_ICON}/>
-    </div>
+        <img className='h-20' alt="logo" src={YOUTUBE_LOGO}/>
     
-  </div>
+       
+    <div className='flex items-center ml-[850px]'>
+      <img className='h-9' alt="user" src={USER_ICON}/>
+    </div>  </div>
+    
+  
   </div>
   )
 }

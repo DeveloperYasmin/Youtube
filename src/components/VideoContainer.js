@@ -13,8 +13,6 @@ const VideoContainer = () => {
   const [searchquery,setsearchquery]=useState("")
   const[suggestions,setsuggestions]=useState("")
   const [showsuggestions,setshowsuggestions]=useState(false)
-
-
   const divref=useRef()
   const sref=useRef()
   window.addEventListener('click',(e)=>{
@@ -49,41 +47,23 @@ const VideoContainer = () => {
     const json=await data.json()
     setvideos(json.items)
     setfiltersearch(json.items)
-
   }
-  
   useEffect(()=>{
     getvideos()
   },[])
-  
-
-
- 
-  return (
-
-    <div className=' z-30'> 
-    
-    <div className='flex flex-wrap ml-52 items-center pl-52' >
-    <input className=' mt-32 absolute h-8 p-6 m-2 w-96 rounded-full border border-black '   placeholder='Search' type="text" value={selected?selected:searchquery}  onChange={(e)=>setsearchquery(e.target.value)}
+  return (  
+    <div>
+    <input className='ml-[430px] mt-1 fixed items-center h-8 p-6 m-8 w-96 rounded-full border border-black '   placeholder='Search' type="text" value={selected?selected:searchquery} onChange={(e)=>setsearchquery(e.target.value)}
    ref={divref} onClick={()=>setshowsuggestions(!showsuggestions)} />
-      </div>
-      <button onClick={()=> {const filtersearch=videos?.filter((sea)=>sea.snippet.title.toLowerCase().includes(searchquery.toLowerCase()))
-        setfiltersearch(filtersearch) }}>
-
-      <img className='absolute h-6 mt-7 pl-[750px]'  alt="search" src={SEARCH_ICON}/>
-      </button>
-      
-      
-  
-      {searchquery && showsuggestions && (<div ref={sref} className='fixed bg-white py-2 px-2 m-16 mt-20 ml-[440px] w-80 rounded-lg border border-gray-100'> 
+      <img className='fixed h-6 mt-4 pl-[750px] cursor-pointer'  alt="search" src={SEARCH_ICON} onClick={()=> {const filtersearch=videos?.filter((sea)=>sea.snippet.title.toLowerCase().includes(searchquery.toLowerCase()))
+        setfiltersearch(filtersearch) }}/>
+      {searchquery && showsuggestions && (<div ref={sref} className=' fixed bg-white py-2 px-2 m-16 mt-16 ml-[440px] w-80 rounded-lg border border-gray-100'> 
      <ul> 
       {suggestions.map((s)=>(<div key={s}  className='flex hover:bg-gray-100 py-2'>
         <li onClick={()=>{setselected(s)&& setshowsuggestions(false)}}>{s}</li></div>))}
         </ul></div>)
       }
-  
-
-    <div className='mt-10 flex flex-wrap ml-32 pt-32'>
+    <div className=' flex flex-wrap ml-32 pt-32'>
      {filtersearch && filtersearch.map(video=>( <Link to={"/watch?v=" + video.id} key={video.id}><VideoCard key={video.id}  info={video}/></Link>))}
     </div> 
     </div>
