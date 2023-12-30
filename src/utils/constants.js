@@ -18,5 +18,6 @@ export const SPORTS="https://cdn-icons-png.flaticon.com/128/2931/2931307.png"
 export const SHOPPING="https://cdn-icons-png.flaticon.com/128/3081/3081415.png"
 export const TRENDING="https://cdn-icons-png.flaticon.com/128/3128/3128568.png"
 export const WATCH="https://cdn-icons-png.flaticon.com/128/6834/6834351.png"
-
+export const LIVE_CHAT_OFFSET=25;
+export const SEND="https://cdn-icons-png.flaticon.com/128/10322/10322482.png"
 export const YOUTUBE_SEARCH_API="http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q="
