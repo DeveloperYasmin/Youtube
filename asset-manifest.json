@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Youtube/static/css/main.0aaeb8e2.css",
+    "main.js": "/Youtube/static/js/main.cd0ab77e.js",
+    "static/js/787.175b8b0e.chunk.js": "/Youtube/static/js/787.175b8b0e.chunk.js",
+    "index.html": "/Youtube/index.html",
+    "main.0aaeb8e2.css.map": "/Youtube/static/css/main.0aaeb8e2.css.map",
+    "main.cd0ab77e.js.map": "/Youtube/static/js/main.cd0ab77e.js.map",
+    "787.175b8b0e.chunk.js.map": "/Youtube/static/js/787.175b8b0e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0aaeb8e2.css",
+    "static/js/main.cd0ab77e.js"
+  ]
+}
